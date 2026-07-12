@@ -32,7 +32,7 @@ log_error() {
 
 # --- Default Configurations ---
 INSTALL_DIR="${INSTALL_DIR:-$HOME/nexus-scraper}"
-REPO_URL="${REPO_URL:-https://github.com/PanPodloga/nexus-scraper.git}" # Placeholder / editable
+REPO_URL="${REPO_URL:-https://github.com/kmasternak88/scrape.git}" # Placeholder / editable
 PORT="${PORT:-8000}"
 HOST="${HOST:-0.0.0.0}"
 
@@ -62,7 +62,7 @@ fi
 # --- 1. System Package Update and Prerequisites ---
 log_info "Updating system package repositories..."
 if [ -n "$SUDO" ] || [ "$EUID" -eq 0 ]; then
-    $SUDO apt-get update -y
+    $SUDO apt-get update -y || true || true
     $SUDO apt-get install -y git curl build-essential libssl-dev zlib1g-dev \
         libbz2-dev libreadline-dev libsqlite3-dev wget llvm libncurses5-dev \
         libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev libsqlite3-0
@@ -96,7 +96,7 @@ if [ "$INSTALL_PYTHON" = true ]; then
     if [ -n "$SUDO" ] || [ "$EUID" -eq 0 ]; then
         $SUDO apt-get install -y software-properties-common
         $SUDO add-apt-repository ppa:deadsnakes/ppa -y
-        $SUDO apt-get update -y
+        $SUDO apt-get update -y || true || true
         $SUDO apt-get install -y python3.11 python3.11-venv python3.11-dev python3-pip
         PYTHON_CMD="python3.11"
         log_success "Python 3.11 installed successfully."
@@ -165,7 +165,7 @@ playwright install chromium
 
 log_info "Installing Playwright system library dependencies..."
 if [ -n "$SUDO" ] || [ "$EUID" -eq 0 ]; then
-    $SUDO playwright install-deps chromium
+    $SUDO playwright install-deps chromium || true || true
 else
     log_warn "Skipping 'playwright install-deps' because of non-root privileges. If Playwright fails to launch, run: 'sudo npx playwright install-deps' manually."
 fi
