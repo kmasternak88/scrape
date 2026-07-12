@@ -47,7 +47,8 @@ cat << 'EOF'
                                                     |_|           
         UNIFIED AUTOMATIC INSTALLER FOR GOOGLE AI STUDIO / APPS   
 ==================================================================
-EOFecho -e "${NC}"
+EOF
+echo -e "${NC}"
 
 # --- Check privileges ---
 SUDO=""
