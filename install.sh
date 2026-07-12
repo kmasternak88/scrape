@@ -84,7 +84,7 @@ if command -v python3 >/dev/null 2>&1; then
     MAJOR=$(echo "$PYTHON_VERSION" | cut -d. -f1)
     MINOR=$(echo "$PYTHON_VERSION" | cut -d. -f2)
     
-    if [ "$MAJOR" -lt 3 ] || { [ "$MAJOR" -eq 3 ] && [ "$MINOR" -lt 11 ]; }; then
+    if [ "$MAJOR" -lt 3 ] || [ "$MAJOR" -eq 3 -a "$MINOR" -lt 11 ]; then
         log_warn "Python version $PYTHON_VERSION is lower than 3.11. Python 3.11+ is required."
         INSTALL_PYTHON=true
     fi
