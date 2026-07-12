@@ -1,0 +1,3 @@
+'''
+Anti-Bot suite init.
+'''

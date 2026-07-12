@@ -1,0 +1,29 @@
+[project]
+name = "nexus-scraper"
+version = "1.0.0"
+description = "Next-Generation Production Grade Distributed Web Scraping & AI Extraction Engine"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.100.0",
+    "uvicorn[standard]>=0.22.0",
+    "playwright>=1.35.0",
+    "httpx[http2]>=0.24.1",
+    "sqlalchemy[asyncio]>=2.0.15",
+    "redis>=4.6.0",
+    "scikit-learn>=1.2.2",
+    "structlog>=23.1.0",
+    "pydantic[email]>=2.0",
+    "pydantic-settings>=2.0",
+    "beautifulsoup4>=4.12.2",
+    "markdownify>=0.11.6",
+    "curl-cffi>=0.5.5",
+    "numpy>=1.24.3"
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
